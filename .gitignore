@@ -1,0 +1,7 @@
+#build
+.rebar
+ebin/
+
+# IDE files
+.idea/
+Santa.iml
