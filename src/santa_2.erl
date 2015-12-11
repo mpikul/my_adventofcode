@@ -170,7 +170,6 @@ get_need_by_lines([H|T], Need, Staff) ->
   get_need_by_lines(T, Need + get_need_by_line(unicode:characters_to_list(H), Staff), Staff).
 
 get_need_by_line(Line, Staff) when length(Line) > 4 ->
-  io:format("~p~n", [Line]),
   {L, R1} = string:to_integer(Line),
   {W, R2} = string:to_integer(string:sub_string(R1, 2)),
   {H, _} = string:to_integer(string:sub_string(R2, 2)),
@@ -183,11 +182,9 @@ get_need_by_line(_Line, _) ->
 get_need(L, W, H, paper) ->
   Dims = [L * W, W * H, L * H],
   Res = (2 * lists:sum(Dims)) + lists:min(Dims),
-  io:format("~p~n", [Res]),
   Res;
 
 get_need(L, W, H, ribbon) ->
   Dims = [L, W, H],
   Res = ((2 * lists:sum(Dims)) - 2 * lists:max(Dims)) + (L * W * H),
-  io:format("~p~n", [Res]),
   Res.

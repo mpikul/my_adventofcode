@@ -94,7 +94,7 @@ handle_call({day102, Path, Number}, _From, State) ->
   {ok, FileData} = file:read_file(Path),
   Data = get_digits(unicode:characters_to_list(FileData), []),
   Res = look_and_say_many(Data, 1, Number),
-  {reply, Res, State};
+  {reply, {length(Res), Res}, State};
 
 handle_call(_Request, _From, State) ->
   {reply, ok, State}.
