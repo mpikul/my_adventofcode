@@ -1,0 +1,8 @@
+{application, 'santa',
+  [{description, "My adventofcode"},
+    {vsn, "1.0"},
+    {included_applications, []},
+    {applications, [kernel, stdlib]},
+    {env,[]}
+  ]
+}.
